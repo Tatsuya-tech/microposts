@@ -1,3 +1,4 @@
+
 <ul class="list-unstyled">
   <% microposts.each do |micropost| %>
     <li class="media mb-3">
@@ -10,9 +11,12 @@
           <p class="mb-0"><%= micropost.content %></p>
         </div>
         <div>
+
+        <div class="row">
           <% if current_user == micropost.user %>
-            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+            <div class="col-sm-1"><%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %></div>
           <% end %>
+        <div class="col-sm-3"> <%= render 'favorites/favomicropost_button', micropost: micropost %> </div>
         </div>
       </div>
     </li>
